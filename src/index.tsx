@@ -1,9 +1,8 @@
-import { render } from 'react-dom'
-import Counter from './components/counter'
+import { createRoot } from 'react-dom/client'
+import App from './App'
 
-render(
-  <div>
-    <Counter/>
-  </div>,
+createRoot(
   document.getElementById('root')
+).render(
+  <App/>
 )
