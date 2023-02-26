@@ -38,6 +38,6 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     return children
   }
 }
-// Если нужна обертка перевода для слассового компонента
+// Если нужна обертка перевода для классового компонента
 // export default withTranslation()(ErrorBoundary)
 export default ErrorBoundary
