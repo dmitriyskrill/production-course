@@ -28,6 +28,13 @@ Clear.args = {
 }
 Clear.decorators = [ThemeDecorator(Theme.LIGHT)]
 
+export const ClearInverted = Template.bind({})
+ClearInverted.args = {
+  children: 'Text',
+  theme: ButtonTheme.CLEAR_INVERTED,
+}
+ClearInverted.decorators = [ThemeDecorator(Theme.LIGHT)]
+
 export const OutlineSizeM = Template.bind({})
 OutlineSizeM.args = {
   children: 'Text',
