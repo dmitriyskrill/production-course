@@ -1,4 +1,6 @@
 {
+  "decrement": "decrement",
+  "increment": "increment",
   "Войти": "Войти",
   "Вызвать ошибку для ErrorBoundary": "Вызвать ошибку для ErrorBoundary",
   "Загрузка": "Loading",
