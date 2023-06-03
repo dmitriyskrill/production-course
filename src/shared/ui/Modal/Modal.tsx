@@ -25,7 +25,6 @@ export const Modal = ({
     [cls.opened]: isOpen,
     [cls.isCLosing]: isClosing,
   }
-  const { theme } = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -57,7 +56,7 @@ export const Modal = ({
   }, [isOpen, onKeyDown])
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
+      <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
