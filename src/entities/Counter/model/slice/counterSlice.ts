@@ -10,9 +10,11 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
+      // eslint-disable-next-line no-param-reassign
       state.value += 1;
     },
     decrement: (state) => {
+      // eslint-disable-next-line no-param-reassign
       state.value -= 1;
     },
   },
