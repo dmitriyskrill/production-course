@@ -3,6 +3,7 @@ import React, {
   ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss'
 
 interface ModalProps {
@@ -24,6 +25,7 @@ export const Modal = ({
     [cls.opened]: isOpen,
     [cls.isCLosing]: isClosing,
   }
+  const { theme } = useTheme()
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -48,7 +50,6 @@ export const Modal = ({
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown)
     }
-
     return () => {
       clearTimeout(timerRef.current)
       window.removeEventListener('keydown', onKeyDown)
@@ -56,7 +57,7 @@ export const Modal = ({
   }, [isOpen, onKeyDown])
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={classNames(cls.Modal, mods, [className, theme])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>
             {children}
