@@ -1,6 +1,11 @@
 {
   "decrement": "decrement",
   "increment": "increment",
+  "Введите ": "Введите ",
+  "Введите password": "Введите password",
+  "Введите username": "Введите username",
+  "Введите логин": "Введите логин",
+  "Введите пароль": "Введите пароль",
   "Войти": "Войти",
   "Вызвать ошибку для ErrorBoundary": "Вызвать ошибку для ErrorBoundary",
   "Загрузка": "Loading",
