@@ -1,11 +1,11 @@
-import React, { Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { routeConfig } from 'shared/config/routeConfig/routeConfig'
-import { useTranslation } from 'react-i18next'
-import { PageLoader } from 'widgets/PageLoader/PageLoader'
+import React, { Suspense } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import { useTranslation } from 'react-i18next';
+import { PageLoader } from 'widgets/PageLoader/PageLoader';
 
 const AppRouter = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <Routes>
@@ -23,7 +23,7 @@ const AppRouter = () => {
         />
       ))}
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;
