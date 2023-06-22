@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "first": "Иван",
+    "lastname": "Иванов",
+    "age": 24,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username" : "admin",
+    "avatar": "https://w.forfun.com/fetch/dc/dc3a1746fd8e1a04532dde9fdd6f8bb9.jpeg"
+  }
 }
