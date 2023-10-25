@@ -16,6 +16,7 @@ interface ProfileCardProps {
   data?: Profile
   error?: string
   isLoading?: boolean
+  readonly?: boolean
   onChangeFirstname?: (value?: string) => void
   onChangeLastname?: (value?: string) => void
   onChangeAge?: (value?: string) => void
@@ -29,6 +30,7 @@ interface ProfileCardProps {
 export const ProfileCard = ({
   className,
   data,
+  readonly,
   error,
   isLoading,
   onChangeFirstname,
@@ -41,7 +43,6 @@ export const ProfileCard = ({
   onChangeCountry,
 }: ProfileCardProps) => {
   const { t } = useTranslation('profile');
-  const readOnly = useSelector(getProfileReadOnly);
   if (isLoading) {
     return (
       <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
@@ -63,7 +64,7 @@ export const ProfileCard = ({
     );
   }
   const mods: Mods = {
-    [cls.editing]: !readOnly,
+    [cls.editing]: !readonly,
   };
   return (
     <div className={classNames(cls.ProfileCard, mods, [className])}>
@@ -77,55 +78,55 @@ export const ProfileCard = ({
           value={data?.first}
           placeholder={t('Ваше имя', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeFirstname}
         />
         <Input
           value={data?.lastname}
           placeholder={t('Ваша фамилия', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeLastname}
         />
         <Input
           value={data?.age}
           placeholder={t('Ваш возраст', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeAge}
         />
         <Input
           value={data?.city}
           placeholder={t('Ваш город', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeCity}
         />
         <Input
           value={data?.username}
           placeholder={t('Имя пользователя', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeUsername}
         />
         <Input
           value={data?.avatar}
           placeholder={t('Ваше фото', { ns: 'profile' })}
           className={cls.input}
-          readOnly={readOnly}
+          readOnly={readonly}
           onChange={onChangeAvatar}
         />
         <CurrencySelect
           className={cls.input}
           value={data?.currency}
           onChange={onChangeCurrency}
-          readOnly={readOnly}
+          readOnly={readonly}
         />
         <CountrySelect
           className={cls.input}
           value={data?.country}
           onChange={onChangeCountry}
-          readOnly={readOnly}
+          readOnly={readonly}
         />
       </div>
     </div>
