@@ -1,5 +1,9 @@
 {
   "": "",
+  "ArticleCodeBlockComponent": "ArticleCodeBlockComponent",
+  "ArticleDetails": "ArticleDetails",
+  "ArticleImageBlockComponent": "ArticleImageBlockComponent",
+  "ArticleTextBlockComponent": "ArticleTextBlockComponent",
   "Profile page": "Profile page",
   "decrement": "decrement",
   "increment": "increment",
@@ -32,10 +36,14 @@
   "Попробуйте обновить страницу": "Попробуйте обновить страницу",
   "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
   "Произошла ошибка при загрузке профиля": "Произошла ошибка при загрузке профиля",
+  "Произошла ошибка при загрузке статьи": {
+    "": ""
+  },
   "Профиль": "Профиль",
   "Редактировать": "Редактировать",
   "Сменить": "Toggle",
   "Сохранить": "Сохранить",
+  "Статья не найдена": "Статья не найдена",
   "Страница деталей статьи": "Страница деталей статьи",
   "Страница не найдена": "Page is not found",
   "Страница статей": "Страница статей",

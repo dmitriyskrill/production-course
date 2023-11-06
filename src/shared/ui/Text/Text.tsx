@@ -7,6 +7,11 @@ export const TextTheme = {
   ERROR: 'error',
 } as const;
 
+export enum TextSize {
+  M = 'size_m',
+  L = 'size_l',
+}
+
 export enum TextAlign {
   RIGHT= 'right',
   LEFT = 'left',
@@ -19,6 +24,7 @@ interface TextProps {
   text?: string
   textTheme?: string
   align?: TextAlign
+  size?: TextSize;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -28,10 +34,11 @@ export const Text = memo((props: TextProps) => {
     text,
     textTheme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
+    size = TextSize.M,
   } = props;
 
   return (
-    <div className={classNames(cls.Text, { }, [className, cls[textTheme], cls[align]])}>
+    <div className={classNames(cls.Text, { }, [className, cls[textTheme], cls[align], cls[size]])}>
       {title && <p className={cls.title}>{title}</p>}
       {text && <p className={cls.text}>{text}</p>}
     </div>
