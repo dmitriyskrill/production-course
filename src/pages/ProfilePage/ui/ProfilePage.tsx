@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
   DynamicModuleLoader,
   ReducersList,
@@ -12,12 +12,14 @@ import {
   getProfileIsLoading,
   ProfileCard,
   profileActions,
-  profileReducer, getProfileValidateErrors,
+  profileReducer, getProfileValidateErrors, getProfileReadOnly,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -35,13 +37,12 @@ const ProfilePage = memo((props: ProfilePageProps) => {
   const form = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
-
+  const { id } = useParams<{ id: string }>();
+  const readOnly = useSelector(getProfileReadOnly);
   const validateErrors = useSelector(getProfileValidateErrors);
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    if (id) dispatch(fetchProfileData(id));
+  });
 
   const onChangeFirstname = useCallback((value: string | undefined) => {
     dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -97,6 +98,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
           data={form}
           isLoading={isLoading}
           error={error}
+          readOnly={readOnly}
           onChangeFirstname={onChangeFirstname}
           onChangeLastname={onChangeLastname}
           onChangeAge={onChangeAge}
