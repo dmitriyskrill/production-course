@@ -1,4 +1,4 @@
-import { TestAsyncThunk } from 'shared/lib/TestAsyncThunk/TestAsyncThunk';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { mockProfile } from 'entities/Profile/model/mockData';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { updateProfileData } from './updateProfileData';
